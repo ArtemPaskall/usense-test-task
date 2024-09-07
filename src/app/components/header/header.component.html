@@ -1,0 +1,26 @@
+<header class="header">
+  <div class="main-header">Currency Exchange</div>
+  <div *ngIf="loading">Loading...</div>
+
+  <div *ngIf="!loading">
+    <table class="curr-table">
+      <thead>
+        <tr>
+          <th>Currency</th>
+          <th>Buy</th>
+          <th>Sell</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let currency of currencies">
+          <tr *ngIf="currency.ccy !== 'UAH'">
+            <td class="curr-name">{{ currency.ccy }}</td>
+            <td>{{ (+currency.buy).toFixed(2) }}</td>
+            <td>{{ (+currency.sale).toFixed(2) }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</header>
+
